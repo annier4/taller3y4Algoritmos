@@ -15,15 +15,19 @@ public class SistemaParticula {
 	  }
 
 	  void addParticle() {
-	    particulas.add(new Particula(origen, app));
+		  Particula p=new Particula(origen, app);
+	    particulas.add(p);
+	    p.start();
 	  }
 
 	  void run() {
 	    for (int i = particulas.size()-1; i >= 0; i--) {
 	    	Particula p = particulas.get(i);
-	      p.run();
+	    	
 	      if (p.isDead()) {
 	        particulas.remove(i);
+	      }else{
+	    	  p.display();
 	      }
 	    }
 	  }

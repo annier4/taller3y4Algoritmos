@@ -1,7 +1,7 @@
 import processing.core.PApplet;
 import processing.core.PVector;
 
-public class Particula {
+public class Particula extends Thread{
 	PApplet app;
 	PVector position;
 	PVector velocity;
@@ -10,15 +10,22 @@ public class Particula {
 
 	  public Particula(PVector l, PApplet app) {
 		  this.app = app;
-		  acceleration = new PVector(0, (float) 0.05);
-		  velocity = new PVector((float) app.random(-1, 1), (float) app.random(-2, 0));
+		  acceleration = new PVector(0, (float) 0.02);
+		  velocity = new PVector((float) app.random(1, 0), (float) app.random(-2, 0));
 		  position = l.copy();
 		  lifespan = (float) 255.0;
 	  }
 
-	  void run() {
-	    update();
-	    display();
+	 public void run() {
+		 while(lifespan > 0.0){
+			 update();
+			 try {
+				sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 }
 	  }
 
 	  // Method to update position

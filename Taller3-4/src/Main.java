@@ -21,7 +21,7 @@ public class Main extends PApplet {
 	
 	@Override
 	public void draw() {
-		background(255);
+		background(255,0,0);
 		ap.pintar();
 		
 		int fps = leap.getFrameRate();
