@@ -23,6 +23,11 @@ public class Main extends PApplet {
 		ap.pintar();
 	}
 	
+	public void mousePressed(){
+		System.out.println(app.mouseX + " "+ app.mouseY);
+		ap.mousePressed();
+	}
+	
 	public static void main(String[] args) {
 		PApplet.main("Main");
 	}
